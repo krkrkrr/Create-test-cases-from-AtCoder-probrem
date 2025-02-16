@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 def get_test_cases(
     url: str = "https://atcoder.jp/contests/abc392/tasks/abc392_a"
-) -> set[tuple[str, str]]:
+) -> list[tuple[str, str]]:
     # Get ChromeDriver path from environment variable
     chromedriver_path = os.getenv('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
 
@@ -22,7 +22,7 @@ def get_test_cases(
     options.add_argument('--remote-debugging-port=9222')
     driver = webdriver.Chrome(service=service, options=options)
 
-    result = set()
+    result = []
 
     try:
         # Open the URL
@@ -41,7 +41,10 @@ def get_test_cases(
             output_element = driver.find_element(By.ID, f"pre-sample{i+1}")
             output_text = output_element.get_property("textContent")
 
-            result.add((input_text, output_text))
+            item = (input_text, output_text)
+            if item in result:
+                continue
+            result.append(item)
     except NoSuchElementException:
         pass
 

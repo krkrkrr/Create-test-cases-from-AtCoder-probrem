@@ -6,11 +6,11 @@ from create_tests import create_tests
 def test_get_test_cases():
     # Assert
     actual = 'https://atcoder.jp/contests/abc392/tasks/abc392_a'
-    expect = set([
+    expect = [
         ('3 15 5\n', 'Yes\n'),
         ('5 3 2\n', 'No\n'),
         ('3 3 9\n', 'Yes\n'),
-    ])
+    ]
 
     # Act
     result = get_test_cases(actual)
@@ -21,11 +21,11 @@ def test_get_test_cases():
 
 def test_create_tests():
     # Assert
-    actual = set([
+    actual = [
         ('3 15 5\n', 'Yes\n'),
         ('5 3 2\n', 'No\n'),
         ('3 3 9\n', 'Yes\n'),
-    ])
+    ]
     expect = """
 from a import solve
 
@@ -72,6 +72,7 @@ Yes
 
 \"\"\"
     assert capsys.readouterr().out == expected
+
 """
     # Act
     result = create_tests(actual)
