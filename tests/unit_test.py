@@ -1,6 +1,7 @@
 import pytest
 from get_test_cases import get_test_cases
-from create_tests import create_tests
+from create_text_content import create_text_content_of_test
+from create_text_content import create_text_content_of_source_code
 
 
 def test_get_test_cases():
@@ -19,13 +20,14 @@ def test_get_test_cases():
     assert result == expect
 
 
-def test_create_tests():
+def test_create_text_content_of_test():
     # Assert
-    actual = [
+    actual_test_cases = [
         ('3 15 5\n', 'Yes\n'),
         ('5 3 2\n', 'No\n'),
         ('3 3 9\n', 'Yes\n'),
     ]
+    actual_probrem_name = 'a'
     expect = """
 from a import solve
 
@@ -75,7 +77,31 @@ Yes
 
 """
     # Act
-    result = create_tests(actual)
+    result = create_text_content_of_test(actual_probrem_name,
+                                         actual_test_cases)
+
+    # Assert
+    assert result == expect
+
+
+def test_create_text_content_of_source_code():
+    # Assert
+    expect = """
+from sys import stdin
+
+
+def solve() -> None:
+    # N = int(input())
+    # N, M = [int(x) for x in stdin.readline().rstrip().split()]
+    raise NotImplementedError
+
+
+if __name__ == '__main__':
+    solve()
+"""
+
+    # Act
+    result = create_text_content_of_source_code()
 
     # Assert
     assert result == expect
