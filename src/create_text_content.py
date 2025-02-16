@@ -37,8 +37,7 @@ ${output}
                                      input=input_str.strip(),
                                      output=output_str.strip()))
 
-    return f"""
-from a import solve
+    return f"""from src.{probrem_name} import solve
 
 import io
 {''.join(tests)}
@@ -52,8 +51,7 @@ def create_text_content_of_source_code() -> str:
     Returns:
         str: The source code template for the function solve.
     """
-    return """
-from sys import stdin
+    return """from sys import stdin
 
 
 def solve() -> None:
