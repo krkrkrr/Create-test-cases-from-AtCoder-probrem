@@ -1,0 +1,8 @@
+[project]
+name = "Create-test-cases-from-AtCoder-probrem"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["selenium"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-randomly", "pytest-watch"]
