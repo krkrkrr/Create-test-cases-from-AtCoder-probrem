@@ -28,10 +28,11 @@ dev = ["pytest", "pytest-randomly", "pytest-watch"]
         pyproject_toml_file.write(pyproject_toml_content)
 
     # Create the src directory and the __init__.py file
-    src_init_file_path = "src/__init__.py"
-    os.makedirs(os.path.dirname(src_init_file_path), exist_ok=True)
-    with open(src_init_file_path, 'w') as src_init_file:
-        src_init_file.write("")
+    src_init_file_path_list = ["src/__init__.py", "tests/__init__.py"]
+    for src_init_file_path in src_init_file_path_list:
+        os.makedirs(os.path.dirname(src_init_file_path), exist_ok=True)
+        with open(src_init_file_path, 'w') as src_init_file:
+            src_init_file.write("")
 
     probrem_names = ['a', 'b', 'c', 'd', 'e', 'f']
     for probrem_name in probrem_names:
