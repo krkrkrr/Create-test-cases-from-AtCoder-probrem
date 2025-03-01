@@ -1,14 +1,14 @@
 from string import Template
 
 
-def create_text_content_of_test(probrem_name: str,
-                                test_cases: set[tuple[str, str]]) -> str:
+def create_text_content_of_test(
+        probrem_name: str, unique_test_cases: set[tuple[str, str]]) -> str:
     """
     Create test cases for the function solve.
     
     Args:
         probrem_name (str): The name of the probrem.
-        test_cases (set[tuple[str, str]]): A set of test cases.
+        unique_test_cases (set[tuple[str, str]]): A set of test cases.
     
     Returns:
         str: The test cases for the function solve.
@@ -29,6 +29,12 @@ ${output}
     assert capsys.readouterr().out == expected
 """)
 
+    # If there are no test cases, create an empty test case.
+    test_cases = len(unique_test_cases) > 0 if list(unique_test_cases) else [
+        ("", "") for _ in range(6)
+    ]
+
+    # Create test cases
     tests = []
     for index, (input_str, output_str) in enumerate(test_cases, start=1):
         tests.append(
