@@ -22,17 +22,9 @@ $ export CHROMEDRIVER_PATH=<chrome driver parent path>/chromedriver
 
 ## Usage
 ### Quick Start
-1. Install the package
 ```
-$ python -m venv .venv --upgrade-deps
-$ source .venv/bin/activate
-$ python -m pip install .
-```
-
-1. Create required files
-```
-$ cd path/to/root/for/environment
-$ python path/to/src/initialize_environment.py https://atcoder.jp/contests/{contest_name}
+chmod +x path/to/generate_automated_tests.sh
+path/to/generate_automated_tests.sh {contest_name}
 ```
 
 ### In develop
