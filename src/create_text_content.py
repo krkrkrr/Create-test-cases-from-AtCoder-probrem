@@ -30,7 +30,7 @@ ${output}
 """)
 
     # If there are no test cases, create an empty test case.
-    test_cases = len(unique_test_cases) > 0 if list(unique_test_cases) else [
+    test_cases = list(unique_test_cases) if len(unique_test_cases) > 0 else [
         ("", "") for _ in range(6)
     ]
 
