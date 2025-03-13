@@ -18,13 +18,11 @@ def create_text_content_of_test(
 def test_${probrem_name}_solve_${index}(capsys, monkeypatch):
     actual = \"\"\"\\
 ${input}
-
 \"\"\"
     monkeypatch.setattr('sys.stdin', io.StringIO(actual))
     solve()
     expected = \"\"\"\\
 ${output}
-
 \"\"\"
     assert capsys.readouterr().out == expected
 """)
@@ -62,7 +60,7 @@ def create_text_content_of_source_code() -> str:
 
 def solve() -> None:
     # N = int(input())
-    # N, M = [int(x) for x in stdin.readline().rstrip().split()]
+    # N, M = [int(x) for x in input().split()]
     raise NotImplementedError
 
 
