@@ -1,6 +1,5 @@
 import os
 import sys
-from .get_test_cases import get_test_cases
 from .create_text_content import create_text_content_of_test, create_text_content_of_source_code
 
 
@@ -44,12 +43,8 @@ dev = ["pytest", "pytest-randomly", "pytest-watch"]
         os.makedirs(os.path.dirname(test_file_path), exist_ok=True)
         os.makedirs(os.path.dirname(source_code_file_path), exist_ok=True)
 
-        # Define the URL of the problem
-        probrem_url = f"{contest_home_url}/tasks/{contest_name}_{probrem_name}"
-
         # Create the test file content
-        test_content = create_text_content_of_test(probrem_name,
-                                                   get_test_cases(probrem_url))
+        test_content = create_text_content_of_test(probrem_name, [])
 
         # Write the test file
         with open(test_file_path, 'w') as test_file:

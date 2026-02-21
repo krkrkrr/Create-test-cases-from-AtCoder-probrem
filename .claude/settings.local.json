@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(git rebase:*)",
+      "Bash(python3:*)",
+      "Bash(python3 -m venv .venv && .venv/bin/pip install -e '.[dev]' -q && .venv/bin/pytest tests/unit_test.py::test_create_text_content_of_test tests/unit_test.py::test_create_text_content_of_source_code -v 2>&1)",
+      "Bash(source /home/krr/workspace/My-environment-for-AtCoder/.venv/bin/activate && pip install -e '.[dev]' -q && pytest tests/unit_test.py::test_create_text_content_of_test tests/unit_test.py::test_create_text_content_of_source_code -v 2>&1)",
+      "Bash(uv run:*)",
+      "Bash(git add:*)",
+      "Bash(git remote:*)",
+      "Bash(mktemp:*)",
+      "Bash(cd /tmp/tmp.DaL4uvhVcV && uvx --from \"git+https://github.com/krkrkrr/Create-test-cases-from-AtCoder-probrem.git@307575ff1552568aef6165634b603c0304077057\" init https://atcoder.jp/contests/abc446 2>&1)",
+      "Bash(tail:*)",
+      "Bash(which Xvfb:*)",
+      "Bash(DISPLAY=:0 uv run:*)",
+      "Bash(head:*)"
+    ]
+  }
+}

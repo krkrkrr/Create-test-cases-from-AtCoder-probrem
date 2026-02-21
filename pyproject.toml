@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "Create-test-cases-from-AtCoder-probrem"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = ["selenium"]
+dependencies = []
 
 [project.scripts]
 init = "src.initialize_environment:main"
