@@ -2,13 +2,13 @@ from string import Template
 
 
 def create_text_content_of_test(
-        probrem_name: str, unique_test_cases: set[tuple[str, str]]) -> str:
+        probrem_name: str, unique_test_cases: list[tuple[str, str]]) -> str:
     """
     Create test cases for the function solve.
     
     Args:
         probrem_name (str): The name of the probrem.
-        unique_test_cases (set[tuple[str, str]]): A set of test cases.
+        unique_test_cases (list[tuple[str, str]]): A list of test cases.
     
     Returns:
         str: The test cases for the function solve.

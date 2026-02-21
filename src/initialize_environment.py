@@ -1,7 +1,7 @@
 import os
 import sys
-from src.get_test_cases import get_test_cases
-from src.create_text_content import create_text_content_of_test, create_text_content_of_source_code
+from .get_test_cases import get_test_cases
+from .create_text_content import create_text_content_of_test, create_text_content_of_source_code
 
 
 def initialize_environment(contest_home_url: str) -> None:
@@ -64,6 +64,9 @@ dev = ["pytest", "pytest-randomly", "pytest-watch"]
 
 
 def main() -> None:
+    if len(sys.argv) < 2:
+        print("Usage: init <contest_home_url>", file=sys.stderr)
+        sys.exit(1)
     contest_home_url = sys.argv[1]
     initialize_environment(contest_home_url)
 
