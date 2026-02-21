@@ -1,7 +1,7 @@
 import pytest
-from get_test_cases import get_test_cases
-from create_text_content import create_text_content_of_test
-from create_text_content import create_text_content_of_source_code
+from src.get_test_cases import get_test_cases
+from src.create_text_content import create_text_content_of_test
+from src.create_text_content import create_text_content_of_source_code
 
 
 def test_get_test_cases():

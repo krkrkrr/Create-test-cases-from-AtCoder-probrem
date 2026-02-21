@@ -1,7 +1,7 @@
 import os
 import sys
-from get_test_cases import get_test_cases
-from create_text_content import create_text_content_of_test, create_text_content_of_source_code
+from src.get_test_cases import get_test_cases
+from src.create_text_content import create_text_content_of_test, create_text_content_of_source_code
 
 
 def initialize_environment(contest_home_url: str) -> None:
@@ -63,7 +63,10 @@ dev = ["pytest", "pytest-randomly", "pytest-watch"]
             source_code_file.write(source_code_content)
 
 
-# Example usage
-if __name__ == "__main__":
+def main() -> None:
     contest_home_url = sys.argv[1]
     initialize_environment(contest_home_url)
+
+
+if __name__ == "__main__":
+    main()
