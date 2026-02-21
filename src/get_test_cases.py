@@ -9,18 +9,16 @@ from selenium.common.exceptions import NoSuchElementException
 def get_test_cases(
     url: str = "https://atcoder.jp/contests/abc392/tasks/abc392_a"
 ) -> list[tuple[str, str]]:
-    # Get ChromeDriver path from environment variable
-    chromedriver_path = os.getenv('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
-
     # Setup Chrome WebDriver
-    service = Service(chromedriver_path)
+    chromedriver_path = os.getenv('CHROMEDRIVER_PATH')
+    service = Service(chromedriver_path) if chromedriver_path else None
     options = webdriver.ChromeOptions()
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--headless')
     options.add_argument('--disable-gpu')
     options.add_argument('--remote-debugging-port=9222')
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(service=service, options=options) if service else webdriver.Chrome(options=options)
 
     result = []
 
